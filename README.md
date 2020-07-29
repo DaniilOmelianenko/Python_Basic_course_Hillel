@@ -1,0 +1,2 @@
+# VVP
+Hillel Python cources
