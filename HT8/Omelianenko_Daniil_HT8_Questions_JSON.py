@@ -8,4 +8,4 @@ for answers in data.get("questions"):
     answers["answer"] = input()
 
 with open("questions.json", "w+") as tempfile:
-    tempfile.write(json.dumps(data))
+    json.dump(data, tempfile, indent=4)
