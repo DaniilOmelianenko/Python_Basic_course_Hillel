@@ -1,13 +1,11 @@
 import json
 
-with open("questions.json", "r") as file:
-    data = json.load(file)
+with open("questions.json", "r") as tempfile:
+    data = json.load(tempfile)
 
-for value_1st in data.values():
-    for value_2nd in value_1st:
-        list_key_value2 = list(value_2nd.keys())
-        print(value_2nd[list_key_value2[0]])
-        value_2nd[list_key_value2[1]] = input(f"{list_key_value2[1]}: ")
+for answers in data.get("questions"):
+    print(answers.get('q'))
+    answers["answer"] = input()
 
-with open("questions.json", "w+") as file:
-    file.write(json.dumps(data))
+with open("questions.json", "w+") as tempfile:
+    tempfile.write(json.dumps(data))
