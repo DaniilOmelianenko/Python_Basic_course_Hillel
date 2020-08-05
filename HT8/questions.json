@@ -1,24 +1,24 @@
 {
-  "questions": [
-    {
-      "q": "What is your name?",
-      "answer": ""
-    },
-    {
-      "q": "How old are you?",
-      "answer": ""
-    },
-    {
-      "q": "Do you like python?",
-      "answer": ""
-    },
-    {
-      "q": "What is the most difficult topic for you?",
-      "answer": ""
-    },
-    {
-      "q": "Please write suggestions and wishes",
-      "answer": ""
-    }
-  ]
+    "questions": [
+        {
+            "q": "What is your name?",
+            "answer": "Daniil"
+        },
+        {
+            "q": "How old are you?",
+            "answer": "29"
+        },
+        {
+            "q": "Do you like python?",
+            "answer": "So Much!"
+        },
+        {
+            "q": "What is the most difficult topic for you?",
+            "answer": "NOTHING"
+        },
+        {
+            "q": "Please write suggestions and wishes",
+            "answer": "need more practice"
+        }
+    ]
 }

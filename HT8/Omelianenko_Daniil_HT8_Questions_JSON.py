@@ -1,11 +1,10 @@
 import json
 
-with open("questions.json", "r") as tempfile:
-    data = json.load(tempfile)
+with open("questions.json", "r") as temp_file:
+    data = json.load(temp_file)
 
 for answers in data.get("questions"):
-    print(answers.get('q'))
-    answers["answer"] = input()
+    answers["answer"] = input(f"{answers.get('q')}: ")
 
-with open("questions.json", "w+") as tempfile:
-    json.dump(data, tempfile, indent=4)
+with open("questions.json", "w") as temp_file:
+    json.dump(data, temp_file, indent=4)
