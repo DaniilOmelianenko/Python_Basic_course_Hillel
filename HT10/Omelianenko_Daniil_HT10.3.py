@@ -9,7 +9,7 @@ def parse(rules):
         elif rule == 'd':
             initial_val -= 1
         elif rule == 'o':
-            result.append(initial_val) #добавляет значение initial_val в  конец списка result
+            result.append(initial_val)
     return result
 
 print (parse("iiisdoso"))
