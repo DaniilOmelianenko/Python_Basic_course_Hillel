@@ -3,14 +3,11 @@ from inputvalidate import input_check
 from compare_results import compare
 from final_result import final_result
 
-# сделать 1 -1000
-number_of_attempts = 1
-
 
 def guess_the_number():
     print(f"Угадай число от 1 до 1000")
-    random_number = random.randint(1, 10)
-    global number_of_attempts
+    random_number = random.randint(1, 1000)
+    number_of_attempts = 1
     for i in range(10):
         print(f'У вас {10 - i} попыток!')
         player_select = input_check()
@@ -18,16 +15,11 @@ def guess_the_number():
         if player_select == random_number:
             break
         number_of_attempts += 1
-    result = (final_result(player_select, random_number))
-    return result
+    return final_result(player_select, random_number, number_of_attempts)
 
 
 if __name__ == '__main__':
     print(guess_the_number())
-
-
-
-
 
 # SOURCE CODE
 # import random
