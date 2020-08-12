@@ -18,7 +18,8 @@ def run_machine():
     return result_list
 
 
-run_machine_result = run_machine()
+#run_machine_result = run_machine()
+run_machine_result = ['XXX', 'C', 'C']
 
 
 
@@ -40,16 +41,18 @@ for i in run_machine_result:
     temp_list.setdefault(i, run_machine_result.count(i))
 print(temp_list)
 
-for key, value in temp_list.items():
-    if key == 'XXX' and value == 1:
-        xxx = 2
-    else:
-        xxx = 1
 
+def xxx():
+    for key, value in temp_list.items():
+        if key == 'XXX' and value == 1:
+            xxx = 2
+        else:
+            xxx = 1
+    return xxx
 #############################
-print(temp_list.values())
+print(xxx())
 for key, value in temp_list.items():
     if value == 3:
         print(score_list[key][0])
     elif value == 2:
-        print((score_list[key][1]) * xxx)
+        print((score_list[key][1]) * int(xxx()))
