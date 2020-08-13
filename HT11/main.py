@@ -15,12 +15,12 @@ def run_machine():
     wheel3 = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "XXX"]
 
     result_list = [random.choice(wheel1), random.choice(wheel2), random.choice(wheel3)]
+
     return result_list
 
 
-#run_machine_result = run_machine()
-run_machine_result = ['XXX', 'C', 'C']
-
+run_machine_result = run_machine()
+print(run_machine_result)
 
 
 score_list = {"XXX": (100, 10, 100),
@@ -42,17 +42,20 @@ for i in run_machine_result:
 print(temp_list)
 
 
-def xxx():
+def x_x_x():
     for key, value in temp_list.items():
         if key == 'XXX' and value == 1:
-            xxx = 2
+            print('xxx = 2')
+            return 2
+    return 1
+
+def start_game():
+    for key, value in temp_list.items():
+        if value == 3:
+            return score_list[key][0]
+        elif value == 2:
+            return (score_list[key][1]) * x_x_x()
         else:
-            xxx = 1
-    return xxx
-#############################
-print(xxx())
-for key, value in temp_list.items():
-    if value == 3:
-        print(score_list[key][0])
-    elif value == 2:
-        print((score_list[key][1]) * int(xxx()))
+            return "Проигрыш!"
+
+print(start_game())
