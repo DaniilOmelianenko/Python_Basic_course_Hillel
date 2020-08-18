@@ -1,34 +1,26 @@
 import random
 
 
-def run_machine():
+def run_wheels():
     wheel1 = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "XXX"]
     wheel2 = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "XXX"]
     wheel3 = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "XXX"]
     result_list = [random.choice(wheel1), random.choice(wheel2), random.choice(wheel3)]
-    return result_list
-
-
-#run_machine_result = ['A', 'C', 'B']
-run_machine_result = run_machine()
-print(run_machine_result)
-
-
-def result_to_dict():
+    print(result_list)
+    
     temp_dict = {}
-    for i in run_machine_result:
-        temp_dict.setdefault(i, run_machine_result.count(i))
-    return temp_dict
+    for i in result_list:
+        temp_dict.setdefault(i, result_list.count(i))
+    print(temp_dict)
 
-
-def x_x_x():
-    for key, value in result_to_dict().items():
+    for key, value in temp_dict.items():
         if key == 'XXX' and value == 1:
-            return 2
-    return 1
+            xxx = 2
+            break
+        else:
+            xxx = 1
+    print(f'xxx = {xxx}')
 
-
-def start_game():
     score_list = {"XXX": (100, 10, 100),
                   "A": (90, 9, 18),
                   "B": (80, 8, 16),
@@ -40,12 +32,43 @@ def start_game():
                   "H": (20, 2, 4),
                   "I": (10, 1, 2)
                   }
-    for key, value in result_to_dict().items():
+
+    for key, value in temp_dict.items():
         if value == 3:
-            return score_list[key][0]
+            return int(score_list[key][0])
         elif value == 2:
-            return (score_list[key][1]) * x_x_x()
+            return int((score_list[key][1]) * xxx)
     return 0
 
 
-print(start_game())
+def validate_game(string):
+    if string == "1":
+        return True
+    elif string == "2":
+        return False
+    else:
+        return None
+
+
+def check_your_luck():
+    total_score = 0
+    game = True
+    while game is True:
+        combination = run_wheels()
+        print(combination)
+        print(f'SCORE: {combination}')
+        total_score += combination
+        print(f'TOTAL: {total_score}')
+        game = None
+        while game is None:
+            game = validate_game(input('''Нажмите "1", если хотите продолжить, или "2", если хотите завершить игру.
+1 - Играть
+2 - Завершить игру
+: '''))
+            print('')
+    print(f'''\nОбщий счет: {total_score}
+До встречи!''')
+
+
+if __name__ == '__main__':
+    check_your_luck()
