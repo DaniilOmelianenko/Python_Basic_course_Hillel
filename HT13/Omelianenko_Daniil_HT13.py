@@ -79,8 +79,8 @@ class TodoList:
 
 
 def init_todo_list():
-    list_name = input('list_name')
-    owner = input('owner')
+    list_name = input('List_name: ')
+    owner = input('Owner: ')
     return TodoList(list_name, owner, None)
 
 
@@ -88,20 +88,20 @@ def main():
     todo_list = init_todo_list()
     try:
         while True:
-            action = input('action какие экшены')
+            action = input('actions (a, tasks, tasks_not_ready, done_task, exit):')
             if action == 'a':
                 done = input('1 or 0')
                 if done not in {'1', '0'}:
                     continue
                 done = bool(int(done))
-                info = input('Some info')
+                info = input('Some info: ')
                 todo_list.add_task(Item(done, info, datetime.datetime.now()))
             elif action == 'tasks':
                 print(todo_list.tasks_list)
             elif action == 'tasks_not_ready':
                 print(todo_list.not_ready_tasks)
             elif action == 'done_task':
-                index = int(input('index'))
+                index = int(input('index: '))
                 todo_list.done_task(index)
             elif action == 'exit':
                 todo_list.to_json()
