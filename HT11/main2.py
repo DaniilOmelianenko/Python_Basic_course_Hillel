@@ -39,36 +39,22 @@ def run_wheels():
     return 0
 
 
-# def validate_game(string):
-#     if string == "1":
-#         return True
-#     elif string == "2":
-#         return False
-
-
 def check_your_luck():
     total_score = 0
-    # game = True
     while True:
-        # while game is True:
         combination = run_wheels()
-        print(combination)
         print(f'SCORE: {combination}')
         total_score += combination
         print(f'TOTAL: {total_score}')
-        # game = None
-        # while game is None:
-        game = input('''Нажмите "1", если хотите продолжить, или "2", если хотите завершить игру.
-1 - Играть
-2 - Завершить игру
-: ''')
-        if game == '1':
-            continue
-        elif game == '2':
+        game = input('''        Do you want to continue?
+        To continue game - press [y]
+        To exit game     - press any key
+        : ''')
+        if game != 'y':
             break
-    print('')
-    print(f'''Общий счет: {total_score}
-До встречи!''')
+        print('')
+    print(f'''\nTOTAL SCORE: {total_score}
+SEE YOU!''')
 
 
 if __name__ == '__main__':
