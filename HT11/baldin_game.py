@@ -59,7 +59,7 @@ def validate_game(string: str):
     return string
 
 
-def game_start():
+def check_your_luck():
     print("Slot machine game\n")
 
     total_score = 0
@@ -70,9 +70,7 @@ def game_start():
         # можно дописать дополнитенльную запускалку
         show_comb = run_wheel()
         print(f"\n{show_comb}")
-
-        game_round = player_score \
-            (convert_data(show_comb))
+        game_round = player_score(convert_data(show_comb))
         total_score += game_round
         print(f"Score: {game_round}\nTotal score: {total_score}\n")
 
@@ -82,7 +80,6 @@ def game_start():
 
     else:
         print(f"\nTotal score is: {total_score}\n")
-
 
 if __name__ == '__main__':
     game_start()
