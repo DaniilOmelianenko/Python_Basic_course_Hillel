@@ -22,7 +22,7 @@ class ATM:
         return amout
 
     def add_money(self, value, cur='UAH'):
-        if cur == 'USD' or cur == 'EUR' or cur == 'UAH':
+        if cur in {'USD', 'EUR', 'UAH'}:
             value = float(value * (self.curr_map[cur]))
         else:
             return ValueError
@@ -33,10 +33,10 @@ class ATM:
         if self.initial_amount < amount:
             raise ValueError('Not enough money')
         elif amount > self.max_limit:
-            raise ValueError(')))))')
-        if cur == 'USD' or cur == 'EUR' or cur == 'UAH':
+            raise ValueError('More than I can get')
+        if cur in {'USD', 'EUR', 'UAH'}:
             amount = float(amount * (self.curr_map[cur]))
         else:
-            return ValueError
+            raise ValueError('Wrong Currency')
         self.initial_amount -= amount
         return self.initial_amount
