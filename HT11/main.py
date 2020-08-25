@@ -11,7 +11,10 @@ def run_wheels():
     temp_dict = {}
     for i in result_list:
         temp_dict.setdefault(i, result_list.count(i))
+<<<<<<< HEAD
     print(temp_dict)
+=======
+>>>>>>> 7adf355cb2986a9024ac0c4642ee3709588e42c0
 
     for key, value in temp_dict.items():
         if key == 'XXX' and value == 1:
@@ -19,7 +22,10 @@ def run_wheels():
             break
         else:
             xxx = 1
+<<<<<<< HEAD
     print(f'xxx = {xxx}')
+=======
+>>>>>>> 7adf355cb2986a9024ac0c4642ee3709588e42c0
 
     score_list = {"XXX": (100, 10, 100),
                   "A": (90, 9, 18),
@@ -41,6 +47,7 @@ def run_wheels():
     return 0
 
 
+<<<<<<< HEAD
 def validate_game(string):
     if string == "1":
         return True
@@ -48,17 +55,31 @@ def validate_game(string):
         return False
     else:
         return None
+=======
+# def validate_game(string):
+#     if string == "1":
+#         return True
+#     elif string == "2":
+#         return False
+>>>>>>> 7adf355cb2986a9024ac0c4642ee3709588e42c0
 
 
 def check_your_luck():
     total_score = 0
+<<<<<<< HEAD
     game = True
     while game is True:
+=======
+    # game = True
+    while True:
+        # while game is True:
+>>>>>>> 7adf355cb2986a9024ac0c4642ee3709588e42c0
         combination = run_wheels()
         print(combination)
         print(f'SCORE: {combination}')
         total_score += combination
         print(f'TOTAL: {total_score}')
+<<<<<<< HEAD
         game = None
         while game is None:
             game = validate_game(input('''Нажмите "1", если хотите продолжить, или "2", если хотите завершить игру.
@@ -67,6 +88,20 @@ def check_your_luck():
 : '''))
             print('')
     print(f'''\nОбщий счет: {total_score}
+=======
+        # game = None
+        # while game is None:
+        game = input('''Нажмите "1", если хотите продолжить, или "2", если хотите завершить игру.
+1 - Играть
+2 - Завершить игру
+: ''')
+        if game == '1':
+            continue
+        elif game == '2':
+            break
+    print('')
+    print(f'''Общий счет: {total_score}
+>>>>>>> 7adf355cb2986a9024ac0c4642ee3709588e42c0
 До встречи!''')
 
 
