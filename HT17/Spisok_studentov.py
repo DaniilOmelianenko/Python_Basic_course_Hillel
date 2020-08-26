@@ -14,84 +14,49 @@ class Student:
         for i in self.scores:
             average_score += i
             count += 1
-        return average_score / count
+        if average_score or count != 0:
+            return average_score / count
 
 
 class Group:
     def __init__(self, name):
         self.name = name
         self.students = {}
-        self.students_count = 0
-        self.group_scores =
 
-    def group_update(self, student): #dobavlenie studenta
-        self.students[1] = student
+    def group_update(self, student):
+        action = input(f'''Input + to add {student} to the group
+Input - to remove {student} from the group
+: ''')
+        if action == '+':
+            if student not in self.students:
+                self.students[student] = student.average_score()
+            else:
+                raise ValueError(f'''{student} already exist in {self.name}''')
+        elif action == '-':
+            if student in self.students:
+                self.students.pop(student)
+            else:
+                raise ValueError(f'''{student} does not exist in {self.name}''')
         return self.students
-
-    def show_st(self):
-        st_list = list(self.st_list)
-        print(f"\nGroup name: {self.name}")
-        print("List of students:\n")
-        for index, st in enumerate(st_list):
-            print(f"{index + 1}) {st.name}\tage:{st.age}")
-
-    def show_grades(self):
-        st_list = list(self.st_list)
-        print(f"\nGroup name: {self.name}\n{'-' * 17}")
-        print("List of students:\n")
-        for index, st in enumerate(st_list):
-            print(f"{st.check_grades()}")
-
-
 
 
 danil = Student('Daniil', 29)
+vetalik = Student('Vetaliy', 23)
 print(danil.name, danil.age)
 danil.add_score(8)
 danil.add_score(5)
 danil.add_score(2)
 danil.add_score(25)
+vetalik.add_score(100)
 print(danil.scores)
 print(danil.average_score())
+print(vetalik.name, vetalik.age)
+print(vetalik.scores)
+print(vetalik.average_score())
 group_a = Group('Group A')
 print(group_a.name)
 group_a.group_update(danil)
+group_a.group_update(vetalik)
 print(group_a.students)
-
-# # Initial Data
-# st_1 = Student("Howard", 20)
-# st_2 = Student("Harry", 19)
-#
-# st_1.add_mark("Math", 9)
-# st_1.add_mark("Math", 11)
-# st_1.add_mark("Math", 12)
-# st_1.add_mark("Physics", 9)
-# st_2.add_mark("Math", 10)
-#
-# group = Group("INTRO")
-# group.group_upd(st_1)
-# group.group_upd(st_2)
-#
-# # Main
-# print("Menu:")
-# while True:
-#     print("Select group:")
-#     print(f"1) {group.name}")
-#     try:
-#         selected_group = int(input("Input: "))
-#     except ValueError:
-#         break
-#
-#     selected_group = group   # Just 1 var
-#     while True:
-#         print("\nSelect variant:")
-#         print("1) Show list of students")
-#         print("2) Check grades")
-#         try:
-#             select_var = int(input("Input: "))
-#         except ValueError:
-#             break
-#         if select_var == 1:
-#             selected_group.show_st()
-#         if select_var == 2:
-#             selected_group.show_grades()
+group_a.group_update(vetalik)
+print(group_a.students)
