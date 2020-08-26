@@ -1,12 +1,3 @@
-from dataclasses import dataclass
-
-
-@dataclass
-class Value:
-    amount: float
-    currency: str
-
-
 class ATM:
     bank_name = 'Mono'
 
@@ -25,7 +16,7 @@ class ATM:
         if cur in {'USD', 'EUR', 'UAH'}:
             value = float(value * (self.curr_map[cur]))
         else:
-            return ValueError
+            raise ValueError('''Can't any more''')
         self.initial_amount += value
         return self.initial_amount
 
