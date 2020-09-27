@@ -17,12 +17,12 @@ b = int(input('gorizontal: '))
 start = labirint[a][b]
 point = labirint
 start = '#'
-for i in range(25):
+go_left = 'point'
+direction_a = 0
+direction_b = 0
+for i in range(2):
     tupik = 0
     exit_point = 0
-    go_left = 'point'
-    direction_a = 0
-    direction_b = 0
     if go_left == 'point' or 'N' and direction_a == 0:
         while True:
             print(steps)
@@ -32,9 +32,9 @@ for i in range(25):
                 a -= 1
                 steps.append([a, b])
                 tupik = 0
+                break
             elif point[a - 1][b] == '#':
                 tupik += 1
-                print('#')
                 break
             else:
                 exit_point = 1
@@ -48,6 +48,7 @@ for i in range(25):
                 a += 1
                 steps.append([a, b])
                 tupik = 0
+                break
             elif point[a + 1][b] == '#':
                 tupik += 1
                 break
@@ -63,6 +64,7 @@ for i in range(25):
                 b += 1
                 steps.append([a, b])
                 tupik = 0
+                break
             elif point[a][b + 1] == '#':
                 tupik += 1
                 break
@@ -78,6 +80,7 @@ for i in range(25):
                 b -= 1
                 steps.append([a, b])
                 tupik = 0
+                break
             elif point[a][b - 1] == '#':
                 tupik += 1
                 break
